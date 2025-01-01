@@ -35,13 +35,13 @@ function Movie() {
     };
   }, [id, navigate]);
 
-  function saveMovies() {
+  function saveMovieOnLocalStorage() {
     const myMovies = localStorage.getItem("@movieflix");
 
     let savedMovies = JSON.parse(myMovies) || [];
 
-    const hasMovie = saveMovies.some(
-      (savedMovies) => saveMovies.id == movie.id
+    const hasMovie = savedMovies.some(
+      (savedMovies) => savedMovies.id === movie.id
     );
 
     if (hasMovie) {
@@ -49,8 +49,8 @@ function Movie() {
       return;
     }
 
-    saveMovies.push(movie);
-    localStorage.setItem("@primeflix", JSON.stringify(saveMovies));
+    savedMovies.push(movie);
+    localStorage.setItem("@movieflix", JSON.stringify(savedMovies));
     alert("Movie saved");
     return;
   }
@@ -75,7 +75,7 @@ function Movie() {
       <strong>Rate: {movie.vote_average} / 10</strong>
 
       <div className="button-area">
-        <button>Save</button>
+        <button onClick={saveMovieOnLocalStorage}>Save</button>
         <button>
           <Link
             to={`https://youtube.com/results?search_query=${movie.title} Trailer`}
