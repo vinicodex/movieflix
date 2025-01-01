@@ -35,6 +35,26 @@ function Movie() {
     };
   }, [id, navigate]);
 
+  function saveMovies() {
+    const myMovies = localStorage.getItem("@movieflix");
+
+    let savedMovies = JSON.parse(myMovies) || [];
+
+    const hasMovie = saveMovies.some(
+      (savedMovies) => saveMovies.id == movie.id
+    );
+
+    if (hasMovie) {
+      alert("This movie it's already in the list");
+      return;
+    }
+
+    saveMovies.push(movie);
+    localStorage.setItem("@primeflix", JSON.stringify(saveMovies));
+    alert("Movie saved");
+    return;
+  }
+
   if (loading) {
     return (
       <div className="movie-info">
