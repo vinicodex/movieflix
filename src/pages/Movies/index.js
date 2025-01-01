@@ -59,6 +59,7 @@ function Movie() {
         <button>
           <Link
             to={`https://youtube.com/results?search_query=${movie.title} Trailer`}
+            target="blank"
           >
             Trailer
           </Link>
