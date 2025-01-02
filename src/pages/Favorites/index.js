@@ -11,8 +11,12 @@ function Favorites() {
     console.log(myList);
   }, []);
 
+  function deleteMovie(id) {
+    alert(id);
+  }
+
   return (
-    <div>
+    <div className="favorites">
       <h1>Favorite movies</h1>
       <ul>
         {movies.map((item) => {
@@ -20,7 +24,7 @@ function Favorites() {
             <li key={item.id}>
               <span>{item.title}</span>
               <Link to={`/movies/${item.id}`}>Access</Link>
-              <button>Delete</button>
+              <button onClick={() => deleteMovie(item.id)}>Delete</button>
             </li>
           );
         })}

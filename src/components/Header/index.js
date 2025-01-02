@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <Link className="logo" to="/">
-        Prime Flix
+        MovieFlix
       </Link>
       <Link className="favorite" to="/favorites">
         My movies
