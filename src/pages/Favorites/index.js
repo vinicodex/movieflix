@@ -12,9 +12,9 @@ function Favorites() {
   }, []);
 
   function deleteMovie(id) {
+    toast.success("Movie removed from your list.");
     let movieFilter = movies.filter((item) => {
       return item.id !== id;
-      toast.success("Movie removed from your list.");
     });
 
     setMovies(movieFilter);
