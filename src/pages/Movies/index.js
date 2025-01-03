@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import api from "../../services/api";
 import "./detail.css";
+import { toast } from "react-toastify";
 
 function Movie() {
   const { id } = useParams();
@@ -45,13 +46,13 @@ function Movie() {
     );
 
     if (hasMovie) {
-      alert("This movie it's already in the list");
+      toast("This movie it's already in the list");
       return;
     }
 
     savedMovies.push(movie);
     localStorage.setItem("@movieflix", JSON.stringify(savedMovies));
-    alert("Movie saved");
+    toast("Movie saved");
     return;
   }
 
