@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <ToastContainer />
+      <ToastContainer autoClose={4000} />
       <RoutesApp />
     </div>
   );
