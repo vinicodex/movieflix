@@ -8,11 +8,15 @@ function Favorites() {
   useEffect(() => {
     const myList = localStorage.getItem("@movieflix");
     setMovies(JSON.parse(myList) || []);
-    console.log(myList);
   }, []);
 
   function deleteMovie(id) {
-    alert(id);
+    let movieFilter = movies.filter((item) => {
+      return item.id !== id;
+    });
+
+    setMovies(movieFilter);
+    localStorage.setItem("@movieflix", JSON.stringify(movieFilter));
   }
 
   return (
