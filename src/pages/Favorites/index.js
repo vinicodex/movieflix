@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import "./favorites.css";
 import { Link } from "react-router-dom";
 
@@ -13,6 +14,7 @@ function Favorites() {
   function deleteMovie(id) {
     let movieFilter = movies.filter((item) => {
       return item.id !== id;
+      toast.success("Movie removed from your list.");
     });
 
     setMovies(movieFilter);

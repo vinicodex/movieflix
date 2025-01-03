@@ -46,13 +46,13 @@ function Movie() {
     );
 
     if (hasMovie) {
-      toast("This movie it's already in the list");
+      toast.warning("This movie it's already in the list");
       return;
     }
 
     savedMovies.push(movie);
     localStorage.setItem("@movieflix", JSON.stringify(savedMovies));
-    toast("Movie saved");
+    toast.success("Movie saved");
     return;
   }
 
